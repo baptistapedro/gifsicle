@@ -3,5 +3,5 @@ duration: 10000
 project: gifsicle-fuzz
 target: gifsiclefuzz
 cmds:
-  - cmd: /sail convert @@ /dev/null
+  - cmd: /gifsicle @@ -o /dev/null
     afl: true
