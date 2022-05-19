@@ -8,7 +8,7 @@ RUN ./bootstrap.sh
 RUN CC=afl-clang ./configure
 RUN make
 RUN  make install
-RUN cp /usr/local/bin/gifsicle /gifsicle
+#RUN cp /usr/local/bin/gifsicle /gifsicle
 #RUN cp ./src/gifsicle /gifsicle
 RUN mkdir /gifsicleCorpus
 RUN wget https://www.sample-videos.com/gif/3.gif
@@ -17,7 +17,7 @@ RUN wget https://www.sample-videos.com/gif/2.gif
 RUN wget https://file-examples.com/wp-content/uploads/2017/10/file_example_GIF_500kB.gif
 RUN wget https://raw.githubusercontent.com/kohler/gifsicle/master/logo.gif
 RUN mv *.gif /gifsicleCorpus
-
+ENV LD_LIBRARY_PATH=/usr/local/lib
 
 ENTRYPOINT ["afl-fuzz", "-i", "/gifsicleCorpus", "-o", "/gifsicleOut"]
-CMD ["/gifsicle", "@@", "-o", "/dev/null"]
+CMD ["/usr/local/bin/gifsicle", "@@", "-o", "/dev/null"]
