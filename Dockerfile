@@ -7,8 +7,9 @@ WORKDIR /gifsicle
 RUN ./bootstrap.sh
 RUN CC=afl-clang ./configure
 RUN make
-RUN make install
+RUN  make install
 RUN cp /usr/local/bin/gifsicle /gifsicle
+#RUN cp ./src/gifsicle /gifsicle
 RUN mkdir /gifsicleCorpus
 RUN wget https://www.sample-videos.com/gif/3.gif
 RUN wget https://www.sample-videos.com/gif/1.gif
