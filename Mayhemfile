@@ -1,0 +1,7 @@
+image: pedbap/gifsicle-fuzz
+duration: 10000
+project: gifsicle-fuzz
+target: gifsiclefuzz
+cmds:
+  - cmd: /sail convert @@ /dev/null
+    afl: true
