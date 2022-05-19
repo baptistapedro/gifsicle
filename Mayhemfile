@@ -6,10 +6,10 @@
 project: baptistapedro/gifsicle-fuzz
 
 # Target name (should be unique within the project)
-target: gifsicle-fuzz-2
+target: gifsicle-fuzz-3
 
 # Base image to run the binary in.
-image: pedbap/gifsicle-fuzz:2
+image: pedbap/gifsicle-fuzz:3
 
 # Turns on extra test case processing (completing a run will take longer)
 advanced_triage: false
@@ -19,7 +19,7 @@ cmds:
 
   # Command used to start the target, "@@" is the input file
   # (when "@@" is omitted Mayhem defaults to stdin inputs)
-  - cmd: /gifsicle @@ -o /dev/null
+  - cmd: /usr/local/bin/gifsicle @@ -o /dev/null
 
     ## Uncomment to change default dir (/) from which the target is invoked
     #cwd: /
